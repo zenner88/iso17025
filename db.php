@@ -1,5 +1,10 @@
-<?php 
-                        $hostsql = 'localhost';
-												$loginsql = 'root';
-												$passwordsql = '123';
-												$basisdatasql = 'iso17025'; ?>
+<?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "db_iso";
+
+// Koneksi dan memilih database di server
+$mysqli = mysql_connect($server,$username,$password) or die("Koneksi gagal");
+mysql_select_db($database) or die("Database tidak bisa dibuka");
+?>

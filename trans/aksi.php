@@ -1,11 +1,13 @@
-<?
-if ($aksi=="Tambah" && $pilihan=="ltambah") {
-	if (trim($id)=="")	{
-		$errmesg="Kode Permintaan Analisis Harus Diisi";
-	} elseif (trim(getnamatoko($idklien))=="") {
-		$errmesg="ID Klien harus diisi dengan benar";
- 	} else {
-  			  $q="INSERT INTO minta 
+<?php
+include '../db.php';
+if (empty($_POST['pilihan'])) {
+	# code...
+} else {
+	if ($_POST['pilihan'] == "ltambah") {
+		$id = $_POST['id'];
+		$idklien = $_POST['idklien'];
+		$thnmasuk = $_POST['']
+		$q="INSERT INTO minta 
  			(ID,IDKLIEN,TANGGALDATANG,TANGGALDEADLINE,STATUS,
  			IDUSER,IDMAN,TGLUPDATE,UPDATER,CONTOH,NOMER1,NOMER2)
  			VALUES('$id','$idklien','$thnmasuk-$blnmasuk-$tglmasuk','$thnd-$blnd-$tgld',
@@ -13,8 +15,8 @@ if ($aksi=="Tambah" && $pilihan=="ltambah") {
 			doquery($q,$koneksi);
 			echo mysql_error();
 			if (sqlaffectedrows($koneksi)>0) {
-  		  $ketlog="Tambah permintaan. ID=$id, Klien=$idklien, Sampel=$contoh";
-        buatlogiso(4,$ketlog,$q,$users);
+  		  		$ketlog="Tambah permintaan. ID=$id, Klien=$idklien, Sampel=$contoh";
+        		buatlogiso(4,$ketlog,$q,$users);
 				$errmesg="Data Permintaan Analisis berhasil ditambahkan. 
 				Silakan lanjutkan dengan penambahan Sampel Data yang hendak diuji";
  				Header("Location: index.php?pilihan=lupdate&idupdate=$id&ok=1");
@@ -23,6 +25,7 @@ if ($aksi=="Tambah" && $pilihan=="ltambah") {
 				$errmesg="Data Permintaan Analisis tidak berhasil ditambahkan.";
 				$aksi="";
 			}
- 	}
+	}	
 }
+
 ?>

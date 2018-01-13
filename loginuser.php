@@ -1,3 +1,4 @@
+
 <script language=JAVASCRIPT>
 	function teslogin (form) {
 		if (form.iduser.value=='') {
@@ -12,9 +13,8 @@
 		return false;
 	}
 </script>
-<form name=log action=index.php method=post>
-
-<table width=150  cellpadding=4 cellspacing=0  border=0 style='width:150px;'>
+<form name="login" action="ceklogin.php" method="post">
+	<table width="150"  cellpadding="4" cellspacing=0  border=0 style='width:150px;'>
 	<tr valign=top  >
 		<td align=center colspan=2 class=judulsubmenu id=loginbox_title><b>Login Operator</td>
 	</tr>
@@ -43,22 +43,10 @@
 	</td></tr>
 	<tr valign=top >
 		<td colspan=2 align=center  class=submenu2>
-			<input id=btn name=aksi type=submit value='  Login  ' onClick="return teslogin(log);">
-			<input  id=btn type=reset value=Reset>
+			<input type="submit" name="aksi" value="login">
+			<input type="reset" name="batal" value="batal">
 		</td>
 	</tr>
   </table>
 </form>
 
-
-<?
-if ($errlogin!="") {
-echo "<SCRIPT>";
-if ($errlogin=="id") {
-	echo "log.iduser.focus();";
-} else {
-	echo "log.password.focus();";
-}
-echo "</SCRIPT>";
-}
-?>

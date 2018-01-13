@@ -1,4 +1,5 @@
-<?
+<?php
+include '../db.php';
 		 $q="SELECT 
 		minta.*,permintaan.STATUS AS STATUSS,
 		DATE_FORMAT(TANGGALDATANG,'%d-%m-%Y') AS TGLMASUK,
@@ -12,9 +13,9 @@
 		HAVING
 		SUM(IF(permintaan.STATUS=7,1,0))=COUNT(permintaan.ID)
  		ORDER BY TANGGALDEADLINE";
-		$h=doquery($q,$koneksi);
+		$h=mysql_query($q);
 		echo mysql_error();
-		if (sqlnumrows($h)>0) {
+		if (mysql_num_rows($h)>0) {
 			
 			echo "<center><h3>Permintaan yang Sudah Selesai Dianalisis</h3>";
 			echo("<p class=judulhaltabel>".$judul."</p>");
@@ -33,7 +34,7 @@
 					</tr>";
 			
 			$i=1;
-			while($data=sqlfetcharray($h)) {
+			while($data=mysql_fetch_array($h)) {
 				$kelas=kelas($i);
 				echo "
 					<tr valign=top $kelas>

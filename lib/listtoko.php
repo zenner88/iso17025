@@ -1,13 +1,13 @@
 <?php
 
-$root="../";
+//$root="../";
 include "../db.php";
-include "../style.inc";
-include "../header.php";
+//include "../style.inc";
+//include "../header.php";
 
-$db = mysql_connect($hostsql, $loginsql,$passwordsql);
+/*$db = mysql_connect($hostsql, $loginsql,$passwordsql);
 
-mysql_select_db($basisdatasql, $db);
+mysql_select_db($basisdatasql, $db);*/
 
 $punit = split(",",$pfltr);
 
@@ -40,7 +40,7 @@ if ($porder == "U") {
 
 
 
-$pengguna = mysql_query($sqltext, $db);
+$pengguna = mysql_query($sqltext);
 
 echo mysql_error();
 
